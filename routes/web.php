@@ -11,9 +11,11 @@
 |
 */
 
+use App\Task;
+
 Route::get('/tasks', function () {
    
-    $tasks = DB::table('tasks')->latest()->get();
+    $tasks = Task::all();
     
     //return $tasks; //JSON
     
@@ -22,7 +24,7 @@ Route::get('/tasks', function () {
 
 Route::get('/tasks/{task}', function ($id) {
    
-    $tasks = DB::table('tasks')->find($id);
+    $tasks = Task::find($id);
     
     //dd($tasks);
     
