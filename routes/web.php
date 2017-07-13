@@ -11,22 +11,7 @@
 |
 */
 
-use App\Task;
 
-Route::get('/tasks', function () {
-   
-    $tasks = Task::all();
-    
-    //return $tasks; //JSON
-    
-    return view('tasks.index', compact('tasks'));
-});
+Route::get('/tasks', 'TasksController@index');
 
-Route::get('/tasks/{task}', function ($id) {
-   
-    $tasks = Task::find($id);
-    
-    //dd($tasks);
-    
-    return view('tasks.show', compact('tasks'));
-});
+Route::get('/tasks/{task}', 'TasksController@show');
