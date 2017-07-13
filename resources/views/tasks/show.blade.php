@@ -1,1 +1,1 @@
-<h1> {{ $tasks->body }} </h1>
+<h1> {{ $task->body }} </h1>
