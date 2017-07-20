@@ -35,12 +35,13 @@ class PostsController extends Controller
 
     {
 
-    	//dd(request('body'));
 
-        //Create a new post using the request data
-        //$post = new Post;
-        //$post->title = request('title');
-        //$post->body = request('body');
+    	$this->validate(request(), [
+
+            'title' => 'required',
+            'body' => 'required'
+
+            ]);
 
         Post::create(request(['title', 'body']));
         
