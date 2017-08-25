@@ -32,4 +32,23 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+    public function publish(Post $post)
+
+    {
+
+        $this->posts()->save($post);
+
+        //if no existing model - use ->create to create in place
+
+           //  Post::create([
+
+           // 'title' => request('title'),
+
+           // 'body' => request('body'),
+
+           // 'user_id' => auth()->id()
+
+           // ]);
+    }
 }

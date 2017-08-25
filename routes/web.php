@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'PostsController@index');
+Route::get('/', 'PostsController@index')->name('home');
 
 Route::get('/posts/create', 'PostsController@create');
 
@@ -23,5 +23,19 @@ Route::get('/tasks', 'TasksController@index');
 
 Route::get('/tasks/{task}', 'TasksController@show');
 
+//Auth::routes();
+
 
 Route::patch('/posts/{post}/comments', 'CommentsController@store');
+
+
+Route::get('/register', 'RegistrationController@create');
+
+Route::post('/register', 'RegistrationController@store');
+
+
+Route::get('/login', 'SessionsController@create')->name('login');
+
+Route::post('/login', 'SessionsController@store');
+
+Route::get('/logout', 'SessionsController@destroy');
