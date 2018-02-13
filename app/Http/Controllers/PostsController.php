@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 
+use App\Repositories\PostsRepository;
+
 class PostsController extends Controller
 {
 
@@ -14,12 +16,16 @@ class PostsController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
     }
 
-    public function index ()
+    public function index (PostsRepository $posts)
 
     {
-        $posts = Post::latest()
-        ->filter(request(['month', 'year']))
-        ->get();
+        
+        //$posts = (new \App\Repositories\PostsRepository)->all(); // commented in favor of DI
+        $posts = $posts->all();
+
+        //$posts = Post::latest()
+        //->filter(request(['month', 'year']))
+       //->get();
 
     	return view('posts.index', compact('posts'));
 
