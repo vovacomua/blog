@@ -16,16 +16,17 @@ class PostsController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
     }
 
-    public function index (PostsRepository $posts)
+    //public function index (PostsRepository $posts)
+    public function index ()
 
     {
-        
-        //$posts = (new \App\Repositories\PostsRepository)->all(); // commented in favor of DI
-        $posts = $posts->all();
 
-        //$posts = Post::latest()
-        //->filter(request(['month', 'year']))
-       //->get();
+        //$posts = (new \App\Repositories\PostsRepository)->all(); // commented in favor of DI
+        //$posts = $posts->all();
+
+        $posts = Post::latest()
+        ->filter(request(['month', 'year']))
+        ->get();
 
     	return view('posts.index', compact('posts'));
 
