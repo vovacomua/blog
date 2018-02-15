@@ -11,9 +11,9 @@
 |
 */
 
-$stripe = resolve('App\Billing\Stripe');
+//$stripe = resolve('App\Billing\Stripe');
 
-dd($stripe);
+//dd($stripe);
 
 
 
