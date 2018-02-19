@@ -34,6 +34,7 @@ Route::get('/tasks/{task}', 'TasksController@show');
 
 Route::patch('/posts/{post}/comments', 'CommentsController@store');
 
+Route::get('/posts/tags/{tag}', 'TagsController@index');
 
 Route::get('/register', 'RegistrationController@create');
 

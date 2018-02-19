@@ -14,4 +14,10 @@ class Tag extends Model
 
 	}
 
+	public function getRouteKeyName()
+
+	{
+		return 'name';
+	}
+
 }
